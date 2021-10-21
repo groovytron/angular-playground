@@ -1,7 +1,8 @@
 export interface ApiPaginationInterface<T> {
-  previous: number;
+  count: number;
+  previous: number|null;
   current: number;
-  next: number;
+  next: number|null;
   last: number;
   items: T[];
 }

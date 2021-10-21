@@ -1,1 +1,30 @@
-<p>todo-list works!</p>
+<h1>Todos List</h1>
+<table mat-table [dataSource]="todosDataSource" class="mat-elevation-z8 todos-table">
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+</table>
+
+<p>
+<mat-paginator
+  [length]="todosPagination.count"
+  [pageSize]="2"
+  [pageSizeOptions]="[2]"
+  (page)="onPageChange($event)"
+  aria-label="Select page">
+</mat-paginator>
+</p>
