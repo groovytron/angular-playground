@@ -14,6 +14,7 @@ import { TodoService } from 'src/app/core/services/http/todo.service';
 export class TodoListComponent {
   todosPagination: ApiPagination<Todo> = new ApiPagination<Todo>();
   todosDataSource: MatTableDataSource<Todo> = new MatTableDataSource<Todo>([]);
+  isLoading: boolean = false;
 
   readonly columns: string[] = [
     'id',
@@ -25,12 +26,15 @@ export class TodoListComponent {
   }
 
   updatePagination = (pagination: ApiPagination<Todo>) => {
+    console.log(pagination);
     this.todosPagination = pagination;
     this.todosDataSource.data = pagination.items;
+    this.isLoading = false;
   }
 
   onPageChange(event: PageEvent) {
-    console.log(event.pageIndex);
+    this.isLoading = true;
+
     this.todoService.list({
       page: event.pageIndex + 1
     }).subscribe(this.updatePagination);

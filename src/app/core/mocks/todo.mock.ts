@@ -45,7 +45,7 @@ export function getTodoPageMock(params: any): ApiPaginationInterface<TodoInterfa
 
   return {
     count: totalItems,
-    previous: page - 1 < 0 ? null : page - 1,
+    previous: page - 1 === 0 ? null : page - 1,
     current: page,
     next: page === totalPages ? null : page + 1,
     last: totalPages,
