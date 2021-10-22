@@ -11,8 +11,8 @@
     "fix": "ng lint --fix && npm run stylelint:fix && npm run html:fix",
     "stylelint:lint": "stylelint \"**/*.{scss,css}\"",
     "stylelint:fix": "stylelint --fix \"**/*.{scss,css}\"",
-    "html:lint": "prettier --check \"**/*.html\" .",
-    "html:fix": "prettier --write \"**/*.html\" ."
+    "html:lint": "prettier --check \"**/*.html\"",
+    "html:fix": "prettier --write \"**/*.html\""
   },
   "private": true,
   "dependencies": {
