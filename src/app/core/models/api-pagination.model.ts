@@ -1,8 +1,8 @@
 interface PaginationInput<T> {
   count: number;
-  previous: number|null;
+  previous: number | null;
   current: number;
-  next: number|null;
+  next: number | null;
   last: number;
   items: T[];
 }
@@ -18,9 +18,9 @@ const DEFAULT_PAGINATION = {
 
 export class ApiPagination<T> {
   count: number;
-  previous: number|null;
+  previous: number | null;
   current: number;
-  next: number|null;
+  next: number | null;
   last: number;
   items: T[];
 

@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { AbstractSerializer } from './abstract-serializer';
+import { Injectable } from '@angular/core';
 import { Todo } from '../../../models/todo.model';
 import { TodoInterface } from '../interfaces/todo.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoSerializer extends AbstractSerializer<TodoInterface, Todo> {
   serialize(input: TodoInterface): Todo {
@@ -16,7 +16,7 @@ export class TodoSerializer extends AbstractSerializer<TodoInterface, Todo> {
       name: input.name,
       description: input.description,
       id: input.id,
-      owner: input.owner
+      owner: input.owner,
     };
   }
 }

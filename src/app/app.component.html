@@ -1,11 +1,9 @@
 <h1>
-  <a routerLink="/">
-    Todo Frontend
-  </a>
+  <a routerLink="/"> Todo Frontend </a>
 </h1>
 <main>
-  <ng-container *ngIf="!isLoading; else loader;">
-      <router-outlet></router-outlet>
+  <ng-container *ngIf="!isLoading; else loader">
+    <router-outlet></router-outlet>
   </ng-container>
   <ng-template #loader>
     <p>Navigation is loading...</p>

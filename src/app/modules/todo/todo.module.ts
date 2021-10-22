@@ -1,19 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoRoutingModule } from './todo-routing.module';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { NgModule } from '@angular/core';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoRoutingModule } from './todo-routing.module';
 
 @NgModule({
-  declarations: [
-    TodoListComponent
-  ],
+  declarations: [TodoListComponent],
   imports: [
     CommonModule,
     TodoRoutingModule,
     MatTableModule,
-    MatPaginatorModule
-  ]
+    MatPaginatorModule,
+  ],
 })
-export class TodoModule { }
+export class TodoModule {}

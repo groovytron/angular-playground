@@ -1,4 +1,3 @@
-import { Component, OnInit } from '@angular/core';
 import {
   ActivationStart,
   Event,
@@ -8,21 +7,20 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'todo-frontend';
-  isLoading: boolean = false;
+  isLoading = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router) {}
 
-  }
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.router.events.subscribe((event: Event) => {
       switch (true) {
         case event instanceof ActivationStart:

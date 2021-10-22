@@ -1,5 +1,3 @@
-import { Injectable } from '@angular/core';
-
 export abstract class AbstractSerializer<Deserialized, Serialized> {
   abstract serialize(input: Deserialized): Serialized;
   abstract deserialize(input: Serialized): Deserialized;
