@@ -28,4 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Reference Links
 
+- [How to define a highly scalable folder structure for your Angular project](https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7)
+- [Best Practices & Guidelines for web applications using Angular](https://blogs.halodoc.io/angular-best-practices/)
 - [Migrating and configuring Eslint with Angular 11](https://dev.to/gsarciotto/migrating-and-configuring-eslint-with-angular-11-3fg1)
