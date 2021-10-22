@@ -1,0 +1,16 @@
+<header>
+  <div>
+    <a routerLink="/">
+      <img id="application-logo" src="{{ applicationLogoUrl }}" alt="">
+    </a>
+  </div>
+  <h1>
+    <a mat-button id="application-name" routerLink="/">{{ applicationName }}</a>
+  </h1>
+  <div id="right-corner">
+    <ng-content select="[header]"></ng-content>
+  </div>
+</header>
+<nav>
+  <ng-content select="[navigation]"></ng-content>
+</nav>

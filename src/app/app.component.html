@@ -1,6 +1,19 @@
-<h1>
-  <a routerLink="/"> Todo Frontend </a>
-</h1>
+<app-header
+  applicationName="Todo Frontend"
+  applicationLogoUrl="/assets/images/logo.jpg"
+>
+  <div id="extra-links" header>
+    <div>
+      <a mat-button href="https://github.com/groovytron/frontend-example">
+        <i class="fab fa-github fa-2x"></i>
+      </a>
+    </div>
+  </div>
+  <div id="application-menu" navigation>
+    <a mat-button routerLink="/">Home</a>
+    <a mat-button routerLink="/todo">My Todos</a>
+  </div>
+</app-header>
 <main>
   <ng-container *ngIf="!isLoading; else loader">
     <router-outlet></router-outlet>

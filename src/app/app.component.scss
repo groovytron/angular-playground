@@ -1,0 +1,14 @@
+#application-menu {
+  display: flex;
+  gap: 0.25rem;
+}
+
+#extra-links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+main {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
