@@ -7,10 +7,12 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint && npm run stylelint:lint",
-    "fix": "ng lint --fix && npm run stylelint:fix",
+    "lint": "ng lint && npm run stylelint:lint && npm run html:lint",
+    "fix": "ng lint --fix && npm run stylelint:fix && npm run html:fix",
     "stylelint:lint": "stylelint \"**/*.{scss,css}\"",
-    "stylelint:fix": "stylelint --fix \"**/*.{scss,css}\""
+    "stylelint:fix": "stylelint --fix \"**/*.{scss,css}\"",
+    "html:lint": "prettier --check \"**/*.html\" .",
+    "html:fix": "prettier --write \"**/*.html\" ."
   },
   "private": true,
   "dependencies": {
