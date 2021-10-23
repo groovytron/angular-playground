@@ -1,3 +1,7 @@
 export interface PaginationParameters {
-  page?: number;
+  [param: string]:
+    | string
+    | number
+    | boolean
+    | readonly (string | number | boolean)[];
 }

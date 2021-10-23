@@ -12,7 +12,9 @@
     "stylelint:lint": "stylelint \"**/*.{scss,css}\"",
     "stylelint:fix": "stylelint --fix \"**/*.{scss,css}\"",
     "html:lint": "prettier --check \"**/*.html\"",
-    "html:fix": "prettier --write \"**/*.html\""
+    "html:fix": "prettier --write \"**/*.html\"",
+    "start-api-mock": "mockoon-cli start --data mockoon/todo.json",
+    "stop-api-mock": "mockoon-cli stop"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +42,7 @@
     "@angular-eslint/template-parser": "12.5.0",
     "@angular/cli": "~12.2.10",
     "@angular/compiler-cli": "~12.2.0",
+    "@mockoon/cli": "^1.2.0",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^4.28.2",

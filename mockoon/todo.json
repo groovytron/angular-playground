@@ -1,0 +1,768 @@
+{
+  "uuid": "4d52835d-17e8-4898-af80-85fe4291df3c",
+  "lastMigration": 18,
+  "name": "Todo API",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "f0ae389f-10a0-4161-b8f1-fc4effe17c9c",
+      "documentation": "Show a user",
+      "method": "get",
+      "endpoint": "api/users/:username",
+      "responses": [
+        {
+          "uuid": "56ef2343-9dc8-4073-93de-a22748436387",
+          "body": "{\n  \"username\": \"\",\n  \"email\": \"{{faker 'internet.email'}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "User details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "2235a24d-6cb0-4d95-a282-dfb2a011b6bd",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "9e03a168-8c5c-4b46-89cd-ddfa77d006ea",
+      "documentation": "Update a user",
+      "method": "put",
+      "endpoint": "api/users/:username",
+      "responses": [
+        {
+          "uuid": "398bb15b-ed50-49fa-8b67-3e82bd525523",
+          "body": "{\n  \"username\": \"\",\n  \"email\": \"{{faker 'internet.email'}}\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "User updated details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "56d9cd8a-f161-4b7d-81e0-67396bf979c1",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "374cbae7-8a4c-4418-864b-1ee6e2546948",
+      "documentation": "Show a user's todos",
+      "method": "get",
+      "endpoint": "api/users/:username/todos",
+      "responses": [
+        {
+          "uuid": "d014a108-ed8b-4207-b77e-b814d64cb217",
+          "body": "{\n  \"totalItems\": 4,\n  \"previous\": null,\n  \"current\": 1,\n  \"next\": 2,\n  \"last\": 2,\n  \"items\": [\n    {\n      \"id\": 1,\n      \"owner\": \"jay\",\n      \"name\": \"Mockoon 1\",\n      \"description\": \"This is Mockoon 1\"\n    },\n    {\n      \"id\": 2,\n      \"owner\": \"jay\",\n      \"name\": \"Mockoon 2\",\n      \"description\": \"This is Mockoon 3\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "List of user's todos",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "page",
+              "value": "1",
+              "operator": "equals"
+            },
+            {
+              "target": "query",
+              "modifier": "page",
+              "value": "",
+              "operator": "null"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "be0259b4-854c-4684-8ea2-323a90ad43be",
+          "body": "{\n  \"totalItems\": 4,\n  \"previous\": 1,\n  \"current\": 2,\n  \"next\": null,\n  \"last\": 2,\n  \"items\": [\n    {\n      \"id\": 3,\n      \"owner\": \"jay\",\n      \"name\": \"Mockoon 3\",\n      \"description\": \"This is Mockoon 3\"\n    },\n    {\n      \"id\": 4,\n      \"owner\": \"jay\",\n      \"name\": \"Mockoon 4\",\n      \"description\": \"This is Mockoon 4\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "query",
+              "modifier": "page",
+              "value": "2",
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "55db1a85-3d8e-4d5c-ad27-4b4dae197c8e",
+      "documentation": "Create a todo",
+      "method": "post",
+      "endpoint": "api/users/:username/todos",
+      "responses": [
+        {
+          "uuid": "6e006377-f8c9-43f0-8cf2-e2044dcfa5fc",
+          "body": "\"\"",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Newly created todo's details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "9aeebd8e-faf8-49ce-9907-778265bca381",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "2aa491a1-9800-4761-9a0a-8e87e0be9d75",
+      "documentation": "Todo details",
+      "method": "get",
+      "endpoint": "api/todos/:todo",
+      "responses": [
+        {
+          "uuid": "2dca3eef-f313-436d-9301-6c6c76c46d41",
+          "body": "\"\"",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Todo details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "cf7c4b65-b6a7-40c0-9a73-8e8ab3621f53",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Todo does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "a6eeea2a-91ed-4eef-9d0b-c3824fced396",
+      "documentation": "Update a todo",
+      "method": "put",
+      "endpoint": "api/todos/:todo",
+      "responses": [
+        {
+          "uuid": "ef1e6948-9418-4315-9f01-527ed56b81c1",
+          "body": "\"\"",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Newly updated todo's details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "6be2d436-d58c-4dd4-b2a9-2bc67d21b5f6",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Todo does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "4f2b9ad5-3895-45e5-b967-8595b9c7dc4b",
+      "documentation": "Invite a user to a todo.",
+      "method": "post",
+      "endpoint": "api/todos/:todo/invite/:username",
+      "responses": [
+        {
+          "uuid": "9c4fbe58-f01e-4c3b-a326-35e29b4201cc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Invitation has been sent.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "0fd11b00-a157-4b33-9a5c-e4791c9a64df",
+          "body": "",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "You do not have the access rights to invite somebody to this todo. Only owners can perform this action.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "16ab4ece-8335-4f10-a5b9-2548dd46a6fc",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User or todo does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "ec12c9e0-e0cf-4ac4-87b0-6f544ca5f718",
+      "documentation": "Remove a user from a todo.",
+      "method": "delete",
+      "endpoint": "api/todos/:todo/invite/:username",
+      "responses": [
+        {
+          "uuid": "30d38d17-4f3d-4b0c-9c04-2436e2cd06ce",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "User has been removed.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "c0b12845-5bbd-4c33-8a49-07860b4480a0",
+          "body": "",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "You do not have the access rights to remove somebody from this todo. Only owners or users trying to remove themselves from a todo can perform this action.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "53c1d727-38b3-45d1-baa5-fae15c22a8c7",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "User or todo does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "fe62cc78-507d-4159-9392-4b7e68e31ecb",
+      "documentation": "Todo invitations list.",
+      "method": "get",
+      "endpoint": "api/users/:username/todo-invitations",
+      "responses": [
+        {
+          "uuid": "cd3997d9-96b6-423e-ba46-dc5c945aa6ce",
+          "body": "{\n  \"previous\": {{faker 'random.number'}},\n  \"current\": {{faker 'random.number'}},\n  \"next\": {{faker 'random.number'}},\n  \"last\": {{faker 'random.number'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "List of todo invitations",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "1061e96b-4d5b-407c-a3d8-5ccb4350d9d1",
+      "documentation": "Accept an invitation to a todo.",
+      "method": "post",
+      "endpoint": "api/todo-invitations/:invitation",
+      "responses": [
+        {
+          "uuid": "16e27262-b138-4e41-809b-9b7794a5ad59",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Invitation has been accepted.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "8a49a191-f19d-4735-8245-13d575311fa5",
+          "body": "",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "You do not have the access rights to access this invitation.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "c8bda050-39c3-4630-9caf-fce70673afaa",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Invitation does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "e616e1b4-b7f8-40f4-8961-a25442354ad1",
+      "documentation": "Refuse an invitation.",
+      "method": "delete",
+      "endpoint": "api/todo-invitations/:invitation",
+      "responses": [
+        {
+          "uuid": "9f748f73-2833-4b84-8fd2-0dc4660b24ef",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Invitation has been refused.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "d9387686-6844-4321-952b-0fc6e11f08d8",
+          "body": "",
+          "latency": 0,
+          "statusCode": 403,
+          "label": "You do not have the access rights to access this invitation.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "2349c5bc-04a4-4629-b6ab-1521a2556b8b",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Invitation does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "3c5d6007-2504-40d9-b413-33409b42cd06",
+      "documentation": "Todo's tasks",
+      "method": "get",
+      "endpoint": "api/todos/:todo/tasks",
+      "responses": [
+        {
+          "uuid": "a6107380-b7b3-4450-ad29-5b4049e56a09",
+          "body": "{\n  \"previous\": {{faker 'random.number'}},\n  \"current\": {{faker 'random.number'}},\n  \"next\": {{faker 'random.number'}},\n  \"last\": {{faker 'random.number'}}\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "List of tasks",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "c0d0d4c3-aced-4ca1-9f61-2d5d748138fb",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Todo does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "ac258913-da7b-4a14-ba32-44f7b531a848",
+      "documentation": "Create a task for a todo",
+      "method": "post",
+      "endpoint": "api/todos/:todo/tasks",
+      "responses": [
+        {
+          "uuid": "a4f2c170-9bf6-4c93-8ecb-5ac6bfeca834",
+          "body": "\"\"",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Newly created task's details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        },
+        {
+          "uuid": "9b891641-f00f-45d2-ad89-0c86ef18f645",
+          "body": "",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "Todo does not exist.",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "798e3594-7023-4907-9b75-19d9a8ae6db2",
+      "documentation": "Task details",
+      "method": "get",
+      "endpoint": "api/tasks/:task",
+      "responses": [
+        {
+          "uuid": "85238ac2-0a56-4ffd-89c3-3a441dff045a",
+          "body": "\"\"",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Task's details",
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "https": false,
+  "cors": true,
+  "headers": [],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}

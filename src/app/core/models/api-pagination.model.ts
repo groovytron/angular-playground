@@ -1,5 +1,5 @@
 interface PaginationInput<T> {
-  count: number;
+  totalItems: number;
   previous: number | null;
   current: number;
   next: number | null;
@@ -8,7 +8,7 @@ interface PaginationInput<T> {
 }
 
 const DEFAULT_PAGINATION = {
-  count: 0,
+  totalItems: 0,
   previous: null,
   current: 1,
   next: null,
@@ -17,7 +17,7 @@ const DEFAULT_PAGINATION = {
 };
 
 export class ApiPagination<T> {
-  count: number;
+  totalItems: number;
   previous: number | null;
   current: number;
   next: number | null;
@@ -25,7 +25,7 @@ export class ApiPagination<T> {
   items: T[];
 
   constructor(pagination: PaginationInput<T> = DEFAULT_PAGINATION) {
-    this.count = pagination.count;
+    this.totalItems = pagination.totalItems;
     this.previous = pagination.previous;
     this.current = pagination.current;
     this.next = pagination.next;

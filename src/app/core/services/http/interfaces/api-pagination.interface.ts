@@ -1,5 +1,5 @@
 export interface ApiPaginationInterface<T> {
-  count: number;
+  totalItems: number;
   previous: number | null;
   current: number;
   next: number | null;
