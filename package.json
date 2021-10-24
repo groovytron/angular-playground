@@ -14,8 +14,8 @@
     "stylelint:fix": "stylelint --fix \"**/*.{scss,css}\"",
     "html:lint": "prettier --check \"**/*.html\"",
     "html:fix": "prettier --write \"**/*.html\"",
-    "start-api-mock": "mockoon-cli start --data mockoon/todo.json",
-    "stop-api-mock": "mockoon-cli stop"
+    "api:start": "mockoon-cli start --data mockoon/todo.json",
+    "api:stop": "mockoon-cli stop"
   },
   "private": true,
   "dependencies": {

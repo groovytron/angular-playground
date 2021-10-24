@@ -6,9 +6,9 @@ This project is a playground to try to implement and show some Angular developme
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-The app also needs the backend API to run. It is strongly recommended to run the API mock by running `npm run start-api-mock`. The API is run using [Mockoon](https://mockoon.com).
+The app also needs the backend API to run. It is strongly recommended to run the API mock by running `npm run api:start`. The API is run using [Mockoon](https://mockoon.com).
 
-API mock can then be stopped by running `npm run stop-api-mock`.
+API mock can then be stopped by running `npm run api:stop`.
 
 ## Build
 
